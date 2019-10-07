@@ -20,8 +20,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    // tslint:disable-next-line:max-line-length
-    this.product = new ProductModel(1, 'Test product', 'This is a test product', 2.5, 'http://icons.iconarchive.com/icons/calebamesbury/classic-american-cars/256/Muscle-Car-Chevrolet-Camaro-SS-icon.png', true);
+    this.product = this.productService.getProduct();
   }
 
 }
