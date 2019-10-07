@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 
@@ -11,7 +11,11 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+  @Input()
   product: ProductModel;
+
+  @Output()
+  addProductToCart: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
 
   constructor(private productService: ProductService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
@@ -21,6 +25,11 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.product = this.productService.getProduct();
+  }
+
+  onAddProductToCartAction(): void {
+    console.log('Product with id: ' + this.product.id + ' added to cart');
+    this.addProductToCart.emit(this.product);
   }
 
 }

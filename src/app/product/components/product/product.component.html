@@ -7,7 +7,7 @@
     <p>{{product.description}}</p>
     <p>Price: ${{product.price}}</p>
     <mat-card-actions [ngSwitch]=product.isAvailable>
-      <button mat-raised-button color="primary" *ngSwitchCase=true>
+      <button mat-raised-button color="primary" *ngSwitchCase=true (click)='onAddProductToCartAction($event)' >
         <mat-icon svgIcon="thumbs-up" aria-hidden="false" class='btn-icon'></mat-icon>
         Add to cart
       </button>
