@@ -7,16 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FirstComponent } from './first/first.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FirstComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [AppComponent, FirstComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+// нет компонентов и сервисов, которые относятся к предметной области
