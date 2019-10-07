@@ -7,7 +7,10 @@
     <p>{{product.description}}</p>
     <p>Price: ${{product.price}}</p>
     <mat-card-actions [ngSwitch]=product.isAvailable>
-      <button mat-button *ngSwitchCase=true>Add to cart</button>
+      <button mat-raised-button color="primary" *ngSwitchCase=true>
+        <mat-icon svgIcon="thumbs-up" aria-hidden="false" class='btn-icon'></mat-icon>
+        Add to cart
+      </button>
       <span *ngSwitchDefault>Sorry this product is unavailable for purchase at this moment</span>
     </mat-card-actions>
   </mat-card-content>

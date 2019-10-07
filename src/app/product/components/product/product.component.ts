@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 
 import { ProductModel } from '../../models/product.model';
 import { ProductService } from '../../services/product.service';
@@ -11,7 +13,11 @@ import { ProductService } from '../../services/product.service';
 export class ProductComponent implements OnInit {
   product: ProductModel;
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+        'thumbs-up',
+        sanitizer.bypassSecurityTrustResourceUrl('assets/img/add_shopping_cart-24px.svg'));
+  }
 
   ngOnInit() {
     // tslint:disable-next-line:max-line-length
