@@ -29,4 +29,6 @@ import { ProductComponent } from './product/components/product/product.component
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+// нет компонентов и сервисов, которые относятся к предметной области
