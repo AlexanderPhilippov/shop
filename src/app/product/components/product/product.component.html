@@ -1,0 +1,17 @@
+<mat-card class='product-card'>
+  <mat-card-header>
+    <mat-card-title>{{product.id}} | {{product.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src={{product.imageUrl}} alt='product'>
+  <mat-card-content>
+    <p>{{product.description}}</p>
+    <p>Price: ${{product.price}}</p>
+    <mat-card-actions [ngSwitch]=product.isAvailable>
+      <button mat-raised-button color="primary" *ngSwitchCase=true (click)='onAddProductToCartAction($event)' >
+        <mat-icon svgIcon="thumbs-up" aria-hidden="false" class='btn-icon'></mat-icon>
+        Add to cart
+      </button>
+      <span *ngSwitchDefault>Sorry this product is unavailable for purchase at this moment</span>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
